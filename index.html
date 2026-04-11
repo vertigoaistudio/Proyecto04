@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zen Luxury CRM | Gestión de Clientes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="main-header">
+            <div class="logo-area">
+                <div class="logo-icon">V</div>
+                <h1>Vertigo<span>CRM</span></h1>
+            </div>
+            <div class="actions-area">
+                <button id="addClientBtn" class="btn btn-primary">
+                    <i data-lucide="plus"></i> Nuevo Cliente
+                </button>
+            </div>
+        </header>
+
+        <main class="dashboard">
+            <section class="stats-overview">
+                <div class="stat-card">
+                    <span class="stat-label">Total Clientes</span>
+                    <span id="totalCount" class="stat-value">0</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">En Seguimiento</span>
+                    <span id="pendingCount" class="stat-value">0</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Convertidos</span>
+                    <span id="convertedCount" class="stat-value">0</span>
+                </div>
+            </section>
+
+            <section class="client-grid-container">
+                <div class="grid-header">
+                    <h2>Mis Clientes</h2>
+                    <div class="search-box">
+                        <i data-lucide="search"></i>
+                        <input type="text" id="searchInput" placeholder="Buscar cliente...">
+                    </div>
+                </div>
+                <div id="clientGrid" class="client-grid">
+                    <!-- Cards will be injected here -->
+                    <div class="empty-state">
+                        <i data-lucide="users"></i>
+                        <p>No hay clientes registrados aún.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal for Adding/Editing -->
+    <div id="clientModal" class="modal">
+        <div class="modal-content glass">
+            <div class="modal-header">
+                <h2 id="modalTitle">Añadir Cliente</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            <form id="clientForm">
+                <div class="form-group">
+                    <label for="clientName">Nombre completo</label>
+                    <input type="text" id="clientName" required placeholder="Ej. Juan Pérez">
+                </div>
+                <div class="form-group">
+                    <label for="clientEmail">Email</label>
+                    <input type="email" id="clientEmail" required placeholder="juan@ejemplo.com">
+                </div>
+                <div class="form-group">
+                    <label for="clientCompany">Empresa</label>
+                    <input type="text" id="clientCompany" placeholder="Nombre de la empresa">
+                </div>
+                <div class="form-group">
+                    <label for="clientStatus">Estado Inicial</label>
+                    <select id="clientStatus">
+                        <option value="nuevo">Nuevo</option>
+                        <option value="seguimiento">En Seguimiento</option>
+                        <option value="convertido">Convertido</option>
+                        <option value="inactivo">Inactivo</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary close-modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar Cliente</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
