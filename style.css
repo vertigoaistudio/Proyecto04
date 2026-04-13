@@ -39,8 +39,12 @@ body {
 }
 
 .navbar .logo img {
-    height: 40px;
+    height: 50px;
     width: auto;
+    object-fit: contain;
+    /* CSS Trick de Senior Mágico: Elimina el fondo blanco si lo hay y deja el logo blanco */
+    filter: invert(1);
+    mix-blend-mode: screen;
 }
 
 .navbar ul {
@@ -96,6 +100,9 @@ body {
 
 .hero-shoe {
     width: 100%;
+    max-width: 80%; /* Ensure it does not overflow */
+    z-index: 2; /* Keep it above background text */
+    position: relative;
     filter: drop-shadow(0 20px 50px rgba(0,0,0,0.8));
 }
 
